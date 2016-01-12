@@ -40,7 +40,7 @@
                            
                             <table class="table table-striped table-bordered table-condensed table-hover text-uppercase">
                                 <thead>
-                                    <tr>
+                                    <tr class="info text-nowrap">
                                         <td>COD</td>
                                         <td>HOSTNAME</td>
                                         <td>IP</td>
