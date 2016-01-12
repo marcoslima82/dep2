@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="conexao.ConexaoSQLite"%>
-<%@page contentType="text/html" import="java.util.Date, java.text.*" pageEncoding="ISO-8859-1"%>
+<%@page contentType="text/html" import="java.util.Date, java.text.*" pageEncoding="UTF-8"%>
 <html>
     <head>
         <title>Sistemas</title>
@@ -34,12 +34,13 @@
                         <div class="panel-body">
                             <table class="table table-striped table-bordered table-condensed table-hover text-uppercase">
                                 <thead>
-                                    <tr>
+                                    <tr class="info text-nowrap">
                                         <!-- codigo sistema, saida out comentada
                                         <td>COD</td>
                                         --> 
                                         <td>SISTEMA</td>
                                         <td>SERVIDOR</td>
+                                        <td>IP</td>
                                         <td>AREA RECEPTORA</td>
                                     </tr>
                                 </thead>
@@ -47,7 +48,7 @@
                                     <%
 
                                         ConexaoSQLite conexao = new ConexaoSQLite();
-                                        conexao.query("SELECT cod_sis,sistema,Servidores.hostname,area "
+                                        conexao.query("SELECT cod_sis,sistema,Servidores.hostname,Servidores.ip,area "
                                                 + "FROM Sistemas,Servidores "
                                                 //+ "ORDER BY sistema ASC ");
                                                 + "WHERE Sistemas.cod_sistema = Servidores.cod "
@@ -57,15 +58,16 @@
                                             int vcod = conexao.getInt("cod_sis");
                                             String vsistema = conexao.getString("sistema");
                                             String vhost = conexao.getString("hostname");
+                                            String vip = conexao.getString("ip");
                                             String varea = conexao.getString("area");
 
                                             out.println("<tr>");
                                             //out.println("<td>" + vcod + "</td>");
                                             out.println("<td>" + vsistema + "</td>");
                                             out.println("<td>" + vhost + "</td>");
-                                            //out.println("<td>" + vip + "</td>");
+                                            out.println("<td>" + vip + "</td>");
                                             out.println("<td>" + varea + "</td>");
-                                            //Coluna com Bot„o ALTERAR
+                                            //Coluna com Bot√£o ALTERAR
                                             /*out.println("<td>");
                                             out.println("<a href=\"sistemas-form.jsp?cod_sis=" + vcod + "\" class=\"btn btn-primary btn-xs\">");
                                             out.println("<span class=\"glyphicon glyphicon-edit\"></span>");
@@ -73,7 +75,7 @@
                                             out.println("</a>");
                                             out.println("</td>");
                                             */
-                                            /*Coluna com Bot„o EXCLUIR
+                                            /*Coluna com Bot√£o EXCLUIR
                                             out.println("<td>");
                                             out.println("<a href=\"sistemas-rem.jsp?cod=" + vcod + "\" class=\"btn btn-danger btn-xs\">");
                                             out.println("<span class=\"glyphicon glyphicon-edit\"></span>");
