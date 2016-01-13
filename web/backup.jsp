@@ -14,12 +14,26 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <script src="js/jquery-1.11.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="Chart.js">
-            require(['E:/Proj_departametal/ExemploProjeto'], function (Chart) {
-                var Chartjs = Chart.noConflict();
-            });
-        </script>
-        
+        <script src="Chart.js"></script>
+
+        <style type="text/css">
+
+            *{
+                font-family: calibri;        
+            }
+
+            .box {
+                margin: 0px auto;
+                width: 70%;
+            }
+
+            .box-chart {
+                width: 100%;
+                margin: 0 auto;
+                padding: 10px;
+            }
+
+        </style>
     </head>
     <body>
 
@@ -37,51 +51,43 @@
                     <h1><small>Backup</small></h1>
                     <hr>
                     <div class="box-chart">
+                        <canvas id="GraficoBarra" width="400" height="400"></canvas>
+                        <script type="text/javascript">
 
-                        <canvas id="GraficoBarra" style="width:100%;">
+                            var options = {
+                                responsive: true
+                            };
 
-                        </canvas>
+                            var data = {
+                                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                                datasets: [
+                                    {
+                                        label: "My First dataset",
+                                        fillColor: "rgba(220,220,220,0.5)",
+                                        strokeColor: "rgba(220,220,220,0.8)",
+                                        highlightFill: "rgba(220,220,220,0.75)",
+                                        highlightStroke: "rgba(220,220,220,1)",
+                                        data: [65, 59, 80, 81, 56, 55, 40]
+                                    },
+                                    {
+                                        label: "My Second dataset",
+                                        fillColor: "rgba(151,187,205,0.5)",
+                                        strokeColor: "rgba(151,187,205,0.8)",
+                                        highlightFill: "rgba(151,187,205,0.75)",
+                                        highlightStroke: "rgba(151,187,205,1)",
+                                        data: [28, 48, 40, 19, 86, 27, 90]
+                                    }
+                                ]
+                            };
 
-                    </div> 
-                    <script type="text/javascript">
-    window.onload = function(){
-        var ctx = document.getElementById("GraficoBarra").getContext("2d");
-        var LineChart = new Chart(ctx).Line(data, options);
-    }  
-</script>
-                    <script type="text/javascript">                                        
+                            window.onload = function () {
+                                var ctx = document.getElementById("GraficoBarra").getContext("2d");
+                                var BarChart = new Chart(ctx).Bar(data, options);
+                            }
+                        </script>
 
-    var options = {
-        responsive:true
-    };
+                    </div>
 
-    var data = {
-        labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
-        datasets: [
-            {
-                label: "Dados primários",
-                fillColor: "rgba(220,220,220,0.5)",
-                strokeColor: "rgba(220,220,220,0.8)",
-                highlightFill: "rgba(220,220,220,0.75)",
-                highlightStroke: "rgba(220,220,220,1)",
-                data: [randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb()]
-            },
-            {
-                label: "Dados secundários",
-                fillColor: "rgba(151,187,205,0.5)",
-                strokeColor: "rgba(151,187,205,0.8)",
-                highlightFill: "rgba(151,187,205,0.75)",
-                highlightStroke: "rgba(151,187,205,1)",
-                data: [28, 48, 40, 19, 86, 27, 90, randomnb(), randomnb(), randomnb(), randomnb(), randomnb()]
-            }
-        ]
-    };                
-
-    window.onload = function(){
-        var ctx = document.getElementById("GraficoBarra").getContext("2d");
-        var BarChart = new Chart(ctx).Bar(data, options);
-    }           
-</script>
                 </div>
                 <div class="col-md-2"> </div>
             </div>
