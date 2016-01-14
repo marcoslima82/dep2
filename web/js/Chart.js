@@ -147,7 +147,7 @@
 			tooltipTitleFontColor: "#fff",
 
 			// String - Tooltip title template
-			tooltipTitleTemplate: "<%= label%>",
+			tooltipTitleTemplate: "<%if (label){%><%= label%>:<$}%><%= value %>",
 
 			// Number - pixel width of padding around tooltip text
 			tooltipYPadding: 6,
