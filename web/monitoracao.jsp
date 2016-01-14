@@ -62,7 +62,8 @@
 
                             window.onload = function () {
                                 var ctx = document.getElementById("GraficoDonut").getContext("2d");
-                                var PizzaChart = new Chart(ctx).Doughnut(data, options);
+                                var myDoughnutChart = new Chart(ctx).Doughnut(data, options);
+                                
                             }
 
                         </script>
