@@ -2584,7 +2584,7 @@
 		animateRotate : true,
 
 		//Boolean - Whether we animate scaling the Doughnut from the centre
-		animateScale : false,
+		animateScale : true,
 
 		//String - A legend template
 		legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"><%if(segments[i].label){%><%=segments[i].label%><%}%></span></li><%}%></ul>"
