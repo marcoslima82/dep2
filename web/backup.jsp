@@ -14,26 +14,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <script src="js/jquery-1.11.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="Chart.js"></script>
-
-        <style type="text/css">
-
-            *{
-                font-family: calibri;        
-            }
-
-            .box {
-                margin: 0px auto;
-                width: 70%;
-            }
-
-            .box-chart {
-                width: 100%;
-                margin: 0 auto;
-                padding: 10px;
-            }
-
-        </style>
+        <script src="js/Chart.js"></script>
     </head>
     <body>
 
@@ -51,7 +32,7 @@
                     <h1><small>Backup</small></h1>
                     <hr>
                     <div class="box-chart">
-                        <canvas id="GraficoBarra" width="400" height="400"></canvas>
+                        <canvas id="GraficoBarra" width="auto"></canvas>
                         <script type="text/javascript">
 
                             var options = {
@@ -59,7 +40,7 @@
                             };
 
                             var data = {
-                                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                                labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul"],
                                 datasets: [
                                     {
                                         label: "My First dataset",
@@ -67,7 +48,7 @@
                                         strokeColor: "rgba(220,220,220,0.8)",
                                         highlightFill: "rgba(220,220,220,0.75)",
                                         highlightStroke: "rgba(220,220,220,1)",
-                                        data: [65, 59, 80, 81, 56, 55, 40]
+                                        data: [50, 59, 80, 81, 85, 90, 95]
                                     },
                                     {
                                         label: "My Second dataset",
