@@ -29,22 +29,20 @@
                     <%@ include file="menu.jsp" %>
                 </div>
                 <div class="col-md-8">
-                    <h1><small>Monitoração<h6>*dados fictícios*</h6></small></h1>
+                    <h1><small>Monitoração<h6>*últimos dados coletados 15/01/2016*</h6></small></h1>
                     <hr>
-                    <div class="box-chart">
+
+                    <div class="box-char">
+
                         <canvas id="GraficoDonut" width="auto"></canvas>
+                        <div id="js-legend"></div>
                         <script type="text/javascript">
-
-                            var options = {
-                                responsive: true
-                            };
-
                             var data = [
                                 {
                                     value: 9,
                                     color: "#FF6347",
                                     highlight: "#FF0000",
-                                    label: "Sem monitoração",
+                                    label: "Sem monitoração"
                                 },
                                 {
                                     value: 265,
@@ -60,21 +58,27 @@
                                 }
                             ]
 
+                            var options = {
+                                responsive: true,
+                                segmentShowStroke: false,
+                                animateRotate: true,
+                                animateScale: false,
+                                percentageInnerCutout: 50
+
+                            }
+
                             window.onload = function () {
                                 var ctx = document.getElementById("GraficoDonut").getContext("2d");
-                                var myDoughnutChart = new Chart(ctx).Doughnut(data, options);
-                                
+                                var GraficoDonut = new Chart(ctx).Doughnut(data, options);
+                                document.getElementById('js-legend').innerHTML = GraficoDonut.generateLegend();
                             }
 
                         </script>
-
                     </div>
-
+                    <div class="col-md-2"> </div>
                 </div>
-                <div class="col-md-2"> </div>
-            </div>
 
-        </div>
+            </div>
 
     </body>
 </html>
