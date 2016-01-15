@@ -41,7 +41,7 @@
                             <!-- MIOLO do PAINEL -->
                             <!-- TESTE -->
                             <!-- TESTE -->
-                            <%  
+                           <%  
                                 
                                 String vcod = request.getParameter("cod_sis");
                                 String vhost = "asd";
@@ -49,36 +49,45 @@
                                 String vsistema = "";
                                 String varea = "";
                                 String vcod_servidor = "";
-                                
-                                //testes de variaveis
-                                System.out.println("vhost > "+vhost+ " cod_sis > "+vcod );
+                                String vhost_name_servidor = "N/A";
+                                String comp = "";
                                
-                                if (vcod != null) 
-                                {
+                                if (vcod != null){
                                     sAction = "sistemas-alt.jsp";
-                                    ConexaoSQLite conexao = new ConexaoSQLite();
-                                    conexao.query("SELECT cod_sis,sistema,Servidores.hostname,Servidores.ip,area,cod_sistema,Servidores.cod "
-                                            + "FROM Sistemas,Servidores "
+                                    ConexaoSQLite conexao_sis = new ConexaoSQLite();
+                                    conexao_sis.query("SELECT cod_sis,sistema, cod_sistema, area "
+                                            + "FROM Sistemas "
                                             + " WHERE cod_sis='" + vcod + "'");
 
-                                    if (conexao.next())
-                                    {   
-                                        
-                                        vcod_servidor = conexao.getString("cod_sistema");
-                                        vsistema = conexao.getString("sistema");
+                                    if (conexao_sis.next()){  
+                                        vcod_servidor = conexao_sis.getString("cod_sistema");
+                                        vsistema = conexao_sis.getString("sistema");
                                         //vcod = conexao.getString("cod_sis");
-                                        vhost = conexao.getString("cod");
-                                        varea = conexao.getString("area");
+                                        vhost = conexao_sis.getString("cod_sistema");
+                                        varea = conexao_sis.getString("area");
+                                        comp = vhost;
                                         
                                     }
-                                        conexao.close();
+                                        conexao_sis.close();
+                                        
+                                        ConexaoSQLite conexao_serv = new ConexaoSQLite();
+                                        conexao_serv.query("SELECT hostname,cod "
+                                            + "FROM Servidores "
+                                            + " WHERE cod='" + comp + "'");
+                                        
+                                        if (conexao_serv.next()){
+                                            vhost_name_servidor = conexao_serv.getString("hostname");
+                                        }
+                                        
+                                //testes de variaveis
+                                System.out.println("vhost > "+vhost+ " cod_sis > "+vcod );
                                 }
                             %>
                             <form action="<%= sAction%>" method="GET">
 
                                 <div class="form-group">
                                     <label>COD_Servidor</label>
-                                    <select id="cxa" class="form-control"><option><%= vcod_servidor%></option></select>
+                                    <select id="cxa" class="form-control"><option><%= vhost_name_servidor%></option></select>
                                 </div>
 
                                 <div class="form-group">
