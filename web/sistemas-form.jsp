@@ -4,6 +4,7 @@
     Author     : USERTQI
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="conexao.ConexaoSQLite"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,7 +18,6 @@
         <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
-<c:forEach var="lista" items="${lista}"><c:out value="${lista}"/><br></c:forEach>
         <div class="container">
 
             <!-- TOPO --> 
@@ -39,7 +39,9 @@
                         </div>
                         <div class="panel-body">
                             <!-- MIOLO do PAINEL -->
-                            <%  
+                            <!-- TESTE -->
+                            <!-- TESTE -->
+                           <%  
                                 
                                 String vcod = request.getParameter("cod_sis");
                                 String vhost = "asd";
@@ -47,36 +49,65 @@
                                 String vsistema = "";
                                 String varea = "";
                                 String vcod_servidor = "";
-                                
-                                //testes de variaveis
-                                System.out.println("vhost > "+vhost+ " cod_sis > "+vcod );
+                                String vhost_name_servidor = "N/A";
+                                String name_servidor;
+                                String comp = "";
+                                ArrayList servidores = new ArrayList();
+                                int num = 0;
                                
-                                if (vcod != null) 
-                                {
+                                if (vcod != null){
                                     sAction = "sistemas-alt.jsp";
-                                    ConexaoSQLite conexao = new ConexaoSQLite();
-                                    conexao.query("SELECT cod_sis,sistema,Servidores.hostname,Servidores.ip,area,cod_sistema,Servidores.cod "
-                                            + "FROM Sistemas,Servidores "
+                                    ConexaoSQLite conexao_sis = new ConexaoSQLite();
+                                    conexao_sis.query("SELECT cod_sis,sistema, cod_sistema, area "
+                                            + "FROM Sistemas "
                                             + " WHERE cod_sis='" + vcod + "'");
 
-                                    if (conexao.next())
-                                    {   
-                                        
-                                        vcod_servidor = conexao.getString("cod_sistema");
-                                        vsistema = conexao.getString("sistema");
+                                    if (conexao_sis.next()){  
+                                        vcod_servidor = conexao_sis.getString("cod_sistema");
+                                        vsistema = conexao_sis.getString("sistema");
                                         //vcod = conexao.getString("cod_sis");
-                                        vhost = conexao.getString("cod");
-                                        varea = conexao.getString("area");
+                                        vhost = conexao_sis.getString("cod_sistema");
+                                        varea = conexao_sis.getString("area");
+                                        comp = vhost;
                                         
                                     }
-                                        conexao.close();
+                                    conexao_sis.close();
+
+                                    ConexaoSQLite conexao_serv = new ConexaoSQLite();
+                                    conexao_serv.query("SELECT hostname,cod "
+                                        + "FROM Servidores "
+                                        + " WHERE cod='" + comp + "'");
+
+                                    if (conexao_serv.next()){
+                                        vhost_name_servidor = conexao_serv.getString("hostname");
+                                    }
+                                    conexao_serv.close();
+                                    
+                                    ConexaoSQLite conexao_serv2 = new ConexaoSQLite();
+                                    conexao_serv2.query("SELECT hostname,cod "
+                                        + "FROM Servidores ");
+                                    while (conexao_serv2.next()){
+                                        name_servidor = conexao_serv2.getString("hostname");
+                                        servidores.add(name_servidor);
+                                        num = (num + 1);
+                                    }
+                                    conexao_serv2.close();
+                                        
+                                    //testes de variaveis
+                                    //System.out.println("vhost > "+vhost+ " cod_sis > "+vcod );
+                                    int numaux = 0;
+                                    System.out.println(num);
+                                    while (numaux != num){
+                                        System.out.println("hostname = " + servidores.get(numaux));
+                                        numaux = (numaux + 1);
+                                    }
                                 }
                             %>
                             <form action="<%= sAction%>" method="GET">
 
                                 <div class="form-group">
-                                    <label>COD_Servidor</label>
-                                    <input type="text" value="<%= vcod_servidor%>" class="form-control" name="cxaServidor" placeholder="Codigo do sistema">
+                                    <label>Nome do Servidor</label>
+                                    <select id="cxa" class="form-control"><option><%= vhost_name_servidor%></option></select>
                                 </div>
 
                                 <div class="form-group">
@@ -84,7 +115,7 @@
                                     <input type="text" value="<%= vsistema%>" class="form-control" name="cxaSistema" placeholder="Digite nome do sistema">
                                 </div>
                                 <div class="form-group">
-                                    <label>Servidor</label>
+                                    <label>Codigo do Servidor</label>
                                     <input class="form-control" name="cxaServidor" value="<%= vhost %>" disabled="">
                                    </div>
 

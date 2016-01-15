@@ -32,7 +32,7 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">Lista de sistemas</div>
                         <div class="panel-body">
-                            <table class="table table-striped table-bordered table-condensed table-hover text-uppercase">
+                            <table class="table table-striped table-bordered table-condensed table-hover text-lowercase">
                                 <thead>
                                     <tr class="info text-nowrap">
                                         <!-- codigo sistema, saida out comentada
@@ -68,13 +68,13 @@
                                             out.println("<td>" + vip + "</td>");
                                             out.println("<td>" + varea + "</td>");
                                             //Coluna com Botão ALTERAR
-                                            /*out.println("<td>");
+                                            out.println("<td>");
                                             out.println("<a href=\"sistemas-form.jsp?cod_sis=" + vcod + "\" class=\"btn btn-primary btn-xs\">");
                                             out.println("<span class=\"glyphicon glyphicon-edit\"></span>");
                                             out.println("alterar");
                                             out.println("</a>");
                                             out.println("</td>");
-                                            */
+                                            
                                             /*Coluna com Botão EXCLUIR
                                             out.println("<td>");
                                             out.println("<a href=\"sistemas-rem.jsp?cod=" + vcod + "\" class=\"btn btn-danger btn-xs\">");
