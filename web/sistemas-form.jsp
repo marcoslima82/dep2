@@ -4,6 +4,7 @@
     Author     : USERTQI
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="conexao.ConexaoSQLite"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -50,7 +51,10 @@
                                 String varea = "";
                                 String vcod_servidor = "";
                                 String vhost_name_servidor = "N/A";
+                                String name_servidor;
                                 String comp = "";
+                                ArrayList servidores = new ArrayList();
+                                int num = 0;
                                
                                 if (vcod != null){
                                     sAction = "sistemas-alt.jsp";
@@ -68,25 +72,42 @@
                                         comp = vhost;
                                         
                                     }
-                                        conexao_sis.close();
+                                    conexao_sis.close();
+
+                                    ConexaoSQLite conexao_serv = new ConexaoSQLite();
+                                    conexao_serv.query("SELECT hostname,cod "
+                                        + "FROM Servidores "
+                                        + " WHERE cod='" + comp + "'");
+
+                                    if (conexao_serv.next()){
+                                        vhost_name_servidor = conexao_serv.getString("hostname");
+                                    }
+                                    conexao_serv.close();
+                                    
+                                    ConexaoSQLite conexao_serv2 = new ConexaoSQLite();
+                                    conexao_serv2.query("SELECT hostname,cod "
+                                        + "FROM Servidores ");
+                                    while (conexao_serv2.next()){
+                                        name_servidor = conexao_serv2.getString("hostname");
+                                        servidores.add(name_servidor);
+                                        num = (num + 1);
+                                    }
+                                    conexao_serv2.close();
                                         
-                                        ConexaoSQLite conexao_serv = new ConexaoSQLite();
-                                        conexao_serv.query("SELECT hostname,cod "
-                                            + "FROM Servidores "
-                                            + " WHERE cod='" + comp + "'");
-                                        
-                                        if (conexao_serv.next()){
-                                            vhost_name_servidor = conexao_serv.getString("hostname");
-                                        }
-                                        
-                                //testes de variaveis
-                                System.out.println("vhost > "+vhost+ " cod_sis > "+vcod );
+                                    //testes de variaveis
+                                    //System.out.println("vhost > "+vhost+ " cod_sis > "+vcod );
+                                    int numaux = 0;
+                                    System.out.println(num);
+                                    while (numaux != num){
+                                        System.out.println("hostname = " + servidores.get(numaux));
+                                        numaux = (numaux + 1);
+                                    }
                                 }
                             %>
                             <form action="<%= sAction%>" method="GET">
 
                                 <div class="form-group">
-                                    <label>COD_Servidor</label>
+                                    <label>Nome do Servidor</label>
                                     <select id="cxa" class="form-control"><option><%= vhost_name_servidor%></option></select>
                                 </div>
 
