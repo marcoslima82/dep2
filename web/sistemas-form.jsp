@@ -76,7 +76,7 @@
 
                                 <div class="form-group">
                                     <label>COD_Servidor</label>
-                                    <input type="text" value="<%= vcod_servidor%>" class="form-control" name="cxaServidor" placeholder="Codigo do sistema">
+                                    <select id="cxa" class="form-control"><option><%= vcod_servidor%></option></select>
                                 </div>
 
                                 <div class="form-group">
