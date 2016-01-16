@@ -95,20 +95,21 @@
                                     conexao_serv2.close();
                                         
                                     //testes de variaveis
-                                    //System.out.println("vhost > "+vhost+ " cod_sis > "+vcod );
-                                    int numaux = 0;
-                                    System.out.println(num);
-                                    while (numaux != num){
-                                        System.out.println("hostname = " + servidores.get(numaux));
-                                        numaux = (numaux + 1);
-                                    }
+                                    System.out.println("vhost > "+vhost+ " cod_sis > "+vcod );
                                 }
                             %>
                             <form action="<%= sAction%>" method="GET">
 
                                 <div class="form-group">
                                     <label>Nome do Servidor</label>
-                                    <select id="cxa" class="form-control"><option><%= vhost_name_servidor%></option></select>
+                                    <select id="cxa" class="form-control">
+                                        <%
+                                        int i = 0;
+                                        for(i = 0; i < servidores.size(); i++){
+                                            out.println("<option>"+ servidores.get(i) +"</option>");
+                                        }
+                                        %>
+                                    </select>
                                 </div>
 
                                 <div class="form-group">
