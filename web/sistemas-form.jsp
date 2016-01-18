@@ -3,7 +3,6 @@
     Created on : 23/12/2015, 17:15:32
     Author     : USERTQI
 --%>
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="conexao.ConexaoSQLite"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,6 +17,7 @@
         <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
+<c:forEach var="lista" items="${lista}"><c:out value="${lista}"/><br></c:forEach>
         <div class="container">
 
             <!-- TOPO --> 
@@ -61,7 +61,6 @@
                                     conexao_sis.query("SELECT cod_sis,sistema, cod_sistema, area "
                                             + "FROM Sistemas "
                                             + " WHERE cod_sis='" + vcod + "'");
-
                                     if (conexao_sis.next()){  
                                         vcod_servidor = conexao_sis.getString("cod_sistema");
                                         vsistema = conexao_sis.getString("sistema");
@@ -72,12 +71,10 @@
                                         
                                     }
                                     conexao_sis.close();
-
                                     ConexaoSQLite conexao_serv = new ConexaoSQLite();
                                     conexao_serv.query("SELECT hostname,cod "
                                         + "FROM Servidores "
                                         + " WHERE cod='" + comp + "'");
-
                                     if (conexao_serv.next()){
                                         vhost_name_servidor = conexao_serv.getString("hostname");
                                     }
@@ -94,20 +91,21 @@
                                     conexao_serv2.close();
                                         
                                     //testes de variaveis
-                                    //System.out.println("vhost > "+vhost+ " cod_sis > "+vcod );
-                                    int numaux = 0;
-                                    System.out.println(num);
-                                    while (numaux != num){
-                                        System.out.println("hostname = " + servidores.get(numaux));
-                                        numaux = (numaux + 1);
-                                    }
+                                    System.out.println("vhost > "+vhost+ " cod_sis > "+vcod );
                                 }
                             %>
                             <form action="<%= sAction%>" method="GET">
 
                                 <div class="form-group">
                                     <label>Nome do Servidor</label>
-                                    <select id="cxa" class="form-control"><option><%= vhost_name_servidor%></option></select>
+                                    <select id="cxa" class="form-control">
+                                        <%
+                                        int i = 0;
+                                        for(i = 0; i < servidores.size(); i++){
+                                            out.println("<option>"+ servidores.get(i) +"</option>");
+                                        }
+                                        %>
+                                    </select>
                                 </div>
 
                                 <div class="form-group">
@@ -115,7 +113,7 @@
                                     <input type="text" value="<%= vsistema%>" class="form-control" name="cxaSistema" placeholder="Digite nome do sistema">
                                 </div>
                                 <div class="form-group">
-                                    <label>Codigo do Servidor</label>
+                                    <label>Servidor</label>
                                     <input class="form-control" name="cxaServidor" value="<%= vhost %>" disabled="">
                                    </div>
 
@@ -135,4 +133,3 @@
         </div>
     </body>
 </html>
-

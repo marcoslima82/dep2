@@ -28,7 +28,7 @@
                 <div class="col-md-2"> 
                     <%@ include file="menu.jsp" %>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-10">
                     <h1><small>Lista de Servidores</small></h1>
                     
                     <div class="panel panel-primary">
@@ -69,13 +69,13 @@
                                             out.println("<td>" + vmonitoracao + "</td>");
                                             out.println("<td>" + vbackup + "</td>");
                                             //Coluna com Botão ALTERAR
-                                            /*out.println("<td>");
+                                            out.println("<td>");
                                             out.println("<a href=\"servidores-form.jsp?cod=" + vcod + "\" class=\"btn btn-primary btn-xs\">");
                                             out.println("<span class=\"glyphicon glyphicon-edit\"></span>");
                                             out.println("alterar");
                                             out.println("</a>");
                                             out.println("</td>");
-                                            */
+                                            
                                             //Coluna com Botão EXCLUIR
                                             /*out.println("<td>");
                                             out.println("<a href=\"servidores-rem.jsp?cod=" + vcod + "\" class=\"btn btn-danger btn-xs\">");
@@ -93,7 +93,7 @@
                         </div>
                     </div>                    
                 </div>
-                <div class="col-md-2"> </div>
+                <div class="col-md-2"></div>
             </div>
 
         </div>
