@@ -29,6 +29,7 @@
                     <%@ include file="menu.jsp" %>
                 </div>
                 <div class="col-md-8">
+                    <hr>
                     <h1><small>Backup<h6>*dados ficticios*</h6></small></h1>
                     <hr>
                     <div class="box-chart">
