@@ -29,7 +29,7 @@
                     <%@ include file="menu.jsp" %>
                 </div>
                 <div class="col-md-8">
-                    <h1><small>Monitoração<h6>*últimos dados coletados 15/01/2016*</h6></small></h1>
+                    <h1><small>Monitoração<h6>*últimos dados coletados 19/01/2016 total 301, atualizando estimativas*</h6></small></h1>
                     <hr>
 
                     <div class="box-char">
@@ -45,13 +45,19 @@
                                     label: "Sem monitoração"
                                 },
                                 {
-                                    value: 265,
+                                    value: 276,
                                     color: "#00FF7F",
                                     highlight: "#00FF00",
                                     label: "Monitorando"
                                 },
                                 {
-                                    value: 1,
+                                    value: 26,
+                                    color: "#4d4dff",
+                                    highlight: "#0000ff",
+                                    label: "Fora do Ametista"
+                                },
+                                {
+                                    value: 0,
                                     color: "#FFD700",
                                     highlight: "#FFFF00",
                                     label: "Em Andamento"
@@ -75,7 +81,7 @@
 
                         </script>
                     </div>
-                    <div class="col-md-2"> </div>
+                    <div class="col-md-8"> TOTAL 301 - *Nem todas são monitoradas pelo ametista</div>
                 </div>
 
             </div>
