@@ -28,6 +28,7 @@
                     <%@ include file="menu.jsp" %>
                 </div>
                 <div class="col-md-10">
+                    <hr>
                     <h1><small>Lista de Sistemas</small></h1>
                     <div class="panel panel-primary">
                         <div class="panel-heading">Lista de sistemas</div>
