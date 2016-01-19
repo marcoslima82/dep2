@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="conexao.ConexaoSQLite"%>
-<%@page contentType="text/html" import="java.util.Date, java.text.*" pageEncoding="ISO-8859-1"%>
+<%@page contentType="text/html" import="java.util.Date, java.text.*" pageEncoding="UTF-8"%>
 <html>
     <head>
         <title>Servidores</title>
@@ -45,7 +45,7 @@
                                         <td>COD</td>
                                         <td>HOSTNAME</td>
                                         <td>IP</td>
-                                        <td>MONITORA«√O</td>
+                                        <td>MONITORA√á√ÉO</td>
                                         <td>BACKUP</td>
                                     </tr>
                                 </thead>
@@ -68,7 +68,7 @@
                                             out.println("<td>" + vip + "</td>");
                                             out.println("<td>" + vmonitoracao + "</td>");
                                             out.println("<td>" + vbackup + "</td>");
-                                            //Coluna com Bot„o ALTERAR
+                                            //Coluna com Bot√£o ALTERAR
                                             out.println("<td>");
                                             out.println("<a href=\"servidores-form.jsp?cod=" + vcod + "\" class=\"btn btn-primary btn-xs\">");
                                             out.println("<span class=\"glyphicon glyphicon-edit\"></span>");
@@ -76,7 +76,7 @@
                                             out.println("</a>");
                                             out.println("</td>");
                                             
-                                            //Coluna com Bot„o EXCLUIR
+                                            //Coluna com Bot√£o EXCLUIR
                                             /*out.println("<td>");
                                             out.println("<a href=\"servidores-rem.jsp?cod=" + vcod + "\" class=\"btn btn-danger btn-xs\">");
                                             out.println("<span class=\"glyphicon glyphicon-edit\"></span>");
