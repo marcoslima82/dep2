@@ -46,13 +46,13 @@
                                     label: "Sem monitoração"
                                 },
                                 {
-                                    value: 276,
+                                    value: 273,
                                     color: "#00FF7F",
                                     highlight: "#00FF00",
                                     label: "Monitorando"
                                 },
                                 {
-                                    value: 26,
+                                    value: 29,
                                     color: "#4d4dff",
                                     highlight: "#0000ff",
                                     label: "Fora do Ametista"
