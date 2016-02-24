@@ -1,5 +1,5 @@
 <%@page import="conexao.ConexaoSQLite"%>
-<%@page contentType="text/html" import="java.util.Date, java.text.*" pageEncoding="ISO-8859-1"%>
+<%@page contentType="text/html" import="java.util.Date, java.text.*" pageEncoding="UTF-8"%>
 <html>
     <head>
         <title>Contatos</title>
@@ -21,50 +21,55 @@
                 <div class="col-md-2"> 
                     <%@ include file="menu.jsp" %>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-10">
                     <h1>Contatos</h1>
                     <div class="panel panel-primary">
                         <div class="panel-heading">Lista de contatos</div>
                         <div class="panel-body">
-                            <table class="table table-hover">
+                            <table class="table table-striped table-bordered table-condensed table-hover text-uppercase">
                                 <thead>
-                                    <tr>
-                                        <td>COD</td>
+                                    <tr class="info text-nowrap">
                                         <td>NOME</td>
-                                        <td>EMAIL</td>
-                                        <td> </td>
-                                        <td> </td>
+                                        <td>TELEFONE</td>
+                                        <td>E-M@IL</td>
+                                        <td>SERVIDOR</td>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <%
                                         
                                         ConexaoSQLite conexao = new ConexaoSQLite();
-                                        conexao.query("SELECT * FROM contatos");
+                                        conexao.query("SELECT Contatos.cod_contato,Contatos.contato,Contatos.telefone,Contatos.email,Servidores.hostname "
+                                                + "FROM Contatos "
+                                                + "JOIN Servidores ON Servidores.cod = Contatos.fk_contato");
                                         
                                         while(conexao.next()) {
-                                            int vcod = conexao.getInt("cod");
-                                            String vnome = conexao.getString("nome");
+                                            int vcod = conexao.getInt("cod_contato");
+                                            String vnome = conexao.getString("contato");
+                                            String vtelefone = conexao.getString("telefone");
                                             String vemail = conexao.getString("email");
+                                            String vhostname = conexao.getString("hostname");
                                             
                                             out.println("<tr>");
-                                            out.println("<td>"+vcod+"</td>");
+                                            //out.println("<td>"+vcod+"</td>");
                                             out.println("<td>"+vnome+"</td>");
+                                            out.println("<td>"+vtelefone+"</td>");
                                             out.println("<td>"+vemail+"</td>");
-                                            //Coluna com Bot„o ALTERAR
+                                            out.println("<td>"+vhostname+"</td>");
+                                            //Coluna com Bot√£o ALTERAR
                                             out.println("<td>");
-                                            out.println("<a href=\"contatos-form.jsp?cod="+vcod+"\" class=\"btn btn-primary btn-xs\">");
+                                            out.println("<a href=\"contatos-form.jsp?cod_contato="+vcod+"\" class=\"btn btn-primary btn-xs\">");
                                             out.println("<span class=\"glyphicon glyphicon-edit\"></span>");
                                             out.println("alterar");
                                             out.println("</a>");
                                             out.println("</td>");
-                                            //Coluna com Bot„o EXCLUIR
-                                            out.println("<td>");
-                                            out.println("<a href=\"contatos-rem.jsp?cod="+vcod+"\" class=\"btn btn-primary btn-xs\">");
+                                            //Coluna com Bot√£o EXCLUIR
+                                            /*out.println("<td>");
+                                            out.println("<a href=\"contatos-rem.jsp?cod_contato="+vcod+"\" class=\"btn btn-danger btn-xs\">");
                                             out.println("<span class=\"glyphicon glyphicon-edit\"></span>");
                                             out.println("excluir");
                                             out.println("</a>");
-                                            out.println("</td>");
+                                            out.println("</td>");*/
                                         }
                                         conexao.close();
                                     %>

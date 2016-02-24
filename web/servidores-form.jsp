@@ -31,7 +31,7 @@
                 <div class="col-md-8">
                     <h1>
                         Servidores
-                        <a href="servidoress.jsp" class="btn btn-primary pull-right">voltar</a>
+                        <a href="servidores.jsp" class="btn btn-primary pull-right">voltar</a>
                     </h1>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -63,11 +63,11 @@
                             <form action="<%= sAction %>" method="GET">
                                 <div class="form-group">
                                     <label>Hostname</label>
-                                    <input type="text" value="<%= vhostname %>" class="form-control" name="cxaHostname" placeholder="Digite nome do host">
+                                    <input type="text" value="<%= vhostname %>" class="form-control" name="cxaHostname" placeholder="Digite nome do host" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label>Ip</label>
-                                    <input type="text" value="<%= vip %>" class="form-control" name="cxaIp" placeholder="Digite o Ip do host">
+                                    <input type="text" value="<%= vip %>" class="form-control" name="cxaIp" placeholder="Digite o Ip do host" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label>Monitoração</label>

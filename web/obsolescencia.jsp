@@ -1,13 +1,14 @@
 <%-- 
-    Document   : backup
-    Created on : Jan 12, 2016, 8:53:02 PM
+    Document   : obsolescencia
+    Created on : Feb 12, 2016, 12:02:49 PM
     Author     : admsup
 --%>
+
 <%@page import="conexao.ConexaoSQLite"%>
 <%@page contentType="text/html" import="java.util.Date, java.text.*" pageEncoding="UTF-8"%>
 <html>
     <head>
-        <title>Controle de monitoração sistemas departamentais</title>
+        <title>Obsolescência do ambiente de sistemas departamentais</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -29,62 +30,67 @@
                 </div>
                 <div class="col-md-8">
                     <hr>
-                    <h1><small>Backup<h6>*últimos dados coletados 11/02/2016 ativos 301*</h6></small></h1>
-                    <hr>
-                    
-                    <%
+                    <h1><small>Obsolescência<h6>*atualizando*</h6></small></h1>
+                    <hr>Versões de Sistemas Operacionais<br>
+                    <%                        ConexaoSQLite conexao = new ConexaoSQLite();
+                        conexao.query("SELECT soperacional, count(*) as contador "
+                                + "FROM Recursos "
+                                + "group by soperacional");
 
-                                        ConexaoSQLite conexao = new ConexaoSQLite();
-                                        conexao.query("SELECT backup, count(*) as contador "
-                                                + "FROM Servidores "
-                                                + "group by backup");
+                        while (conexao.next()) {
+                            String vsoperacional = conexao.getString("soperacional");
+                            String vcount = conexao.getString("contador");
 
-                                        while (conexao.next()) {
-                                            String vbackup = conexao.getString("backup");
-                                            String vcount = conexao.getString("contador");
+                            out.println("<tr>");
+                            out.println("<td>" + "[" + vsoperacional + " =" + "</td>");
+                            out.println("<td>" + vcount + "]" + "</td>");
+                            out.println("</tr>");
+                        }
+                        conexao.close();
+                        
+                    %>
 
-                                            out.println("<tr>");
-                                            out.println("<td>" + "[" + vbackup + "</td>");
-                                            out.println("<td>" + vcount + "]" + "</td>");
-                                            out.println("</tr>");
-                                        }
-                                        conexao.close();
-                                    %>
                     <div class="box-char">
 
                         <canvas id="GraficoDonut" width="auto"></canvas>
                         <div id="js-legend"></div>
                         <script type="text/javascript">
-                            var data = [
+                                var data = [
                                 {
-                                    value: 61,
+                                    value: 30,
                                     color: "#F78181",
                                     highlight: "#FF0000",
-                                    label: "?"
+                                    label: "Windows XP"
                                 },
                                 {
-                                    value: 218,
-                                    color: "#00FF7F",
-                                    highlight: "#00FF00",
-                                    label: "OK"
-                                },
-                                {
-                                    value: 12,
+                                    value: 25,
                                     color: "#819FF7",
                                     highlight: "#4d4dff",
-                                    label: "Control-M"
+                                    label: "Windows 7"
                                 },
                                 {
-                                    value: 13,
-                                    color: "#990099",
-                                    highlight: "#e600e5",
-                                    label: "N/A"
-                                },
-                                {
-                                    value: 0,
+                                    value: 29,
                                     color: "#FFD700",
                                     highlight: "#FFFF00",
-                                    label: "Solicitado regularização"
+                                    label: "Windows 2000"
+                                },
+                                {
+                                    value: 50,
+                                    color: "#990099",
+                                    highlight: "#e600e5",
+                                    label: "Windows 2003"
+                                },
+                                {
+                                    value: 100,
+                                    color: "#00FF7F",
+                                    highlight: "#00FF00",
+                                    label: "Windows 2008"
+                                },
+                                {
+                                    value: 17,
+                                    color: "#F7BE81",
+                                    highlight: "#FF8000",
+                                    label: "Unix"
                                 }
                             ]
 
@@ -105,10 +111,10 @@
 
                         </script>
                     </div>
-                    <div class="col-md-8"> ATIVOS 301</div>
+                    <div class="col-md-8"> ######### </div>
                 </div>
 
             </div>
-                
+
     </body>
 </html>

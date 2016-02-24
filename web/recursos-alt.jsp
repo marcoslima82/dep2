@@ -14,12 +14,14 @@
     String vprocessador = request.getParameter("cxaProcessador");
     String vvolumetria = request.getParameter("cxaVolumetria");
     String vbanco = request.getParameter("cxaBanco");
+    String vversaop = request.getParameter("cxaVersao");
         
     ConexaoSQLite conexao = new ConexaoSQLite();
     conexao.queryUpdate("UPDATE Recursos "
             + "SET "
             //+ "cod_recursos='"+vcod_recursos+"'," Não perde o hostname mesmo como null
             + "soperacional='"+vsoperacional+"',"
+            + "versaop='"+vversaop+"',"
             + "memoria='"+vmemoria+"',"
             + "processador='"+vprocessador+"',"
             + "volumetria='"+vvolumetria+"',"

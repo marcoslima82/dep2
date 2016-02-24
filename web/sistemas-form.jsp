@@ -71,6 +71,7 @@
                                         
                                     }
                                     conexao_sis.close();
+                                    
                                     ConexaoSQLite conexao_serv = new ConexaoSQLite();
                                     conexao_serv.query("SELECT hostname,cod "
                                         + "FROM Servidores "
@@ -95,7 +96,7 @@
                                 }
                             %>
                             <form action="<%= sAction%>" method="GET">
-
+                                <!--
                                 <div class="form-group">
                                     <label>Nome do Servidor</label>
                                     <select id="cxa" class="form-control">
@@ -106,7 +107,7 @@
                                         }
                                         %>
                                     </select>
-                                </div>
+                                </div>-->
 
                                 <div class="form-group">
                                     <label>Sistema</label>
@@ -114,7 +115,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Servidor</label>
-                                    <input class="form-control" name="cxaServidor" value="<%= vhost %>" disabled="">
+                                    <input class="form-control" name="cxaServidor" value="<%= vhost_name_servidor %>" disabled="">
                                    </div>
 
                                 <div class="form-group">

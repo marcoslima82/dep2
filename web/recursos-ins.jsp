@@ -12,12 +12,14 @@
     String vprocessador = request.getParameter("cxaProcessador");
     String vvolumetria = request.getParameter("cxaVolumetria");
     String vbanco = request.getParameter ("cxaBanco");
+    String vversaop = request.getParameter("cxaVersao");
     
     ConexaoSQLite conexao = new ConexaoSQLite();
     conexao.queryUpdate("INSERT INTO Recursos"
-            + "(soperacional,memoria,processador,volumetria,banco,cod_recursos) values ("
+            + "(soperacional,versaop,memoria,processador,volumetria,banco,cod_recursos) values ("
             + "'"+vcod_recursos+"',"
             + "'"+vsoperacional+"',"
+             + "'"+vversaop+"',"
             + "'"+vmemoria+"',"
             + "'"+vprocessador+"',"
             + "'"+vvolumetria+"',"

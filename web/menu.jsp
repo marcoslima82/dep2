@@ -4,6 +4,8 @@
     <div class="well text-uppercase">
         <a href="home.jsp">Home</a>
         <hr>
+        <a href="incidentes.jsp">Incidentes</a>
+        <hr>
         <a href="sistemas.jsp">Sistemas</a>
         <hr>
         <a href="servidores.jsp">Servidores</a>
@@ -13,4 +15,8 @@
         <a href="monitoracao.jsp">Monitoração</a>
         <hr>
         <a href="recursos.jsp">Recursos</a>
+        <hr>
+        <a href="obsolescencia.jsp">Obsolescência</a>
+        <hr>
+        <a href="contatos.jsp">Contatos</a>
     </div>

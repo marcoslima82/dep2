@@ -4,6 +4,7 @@
     Author     : mark
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="conexao.ConexaoSQLite"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -49,35 +50,55 @@
                               String vprocessador = "";
                               String vvolumetria = "";
                               String vbanco = "";
+                              String vhost_name_servidor = "N/A";
+                              String vversaop = "versaop";
+                              ArrayList servidores = new ArrayList();
+                              int num = 0;
+                              
                               if(vcod != null) {
                                   sAction = "recursos-alt.jsp";
                                   ConexaoSQLite conexao = new ConexaoSQLite();
-                                  conexao.query("SELECT Servidores.hostname,soperacional,memoria,processador,volumetria,banco "
+                                  conexao.query("SELECT Servidores.hostname,soperacional,versaop,memoria,processador,volumetria,banco "
                                           + "FROM Recursos,Servidores "
                                           + "WHERE cod_rec='"+vcod+"'");
                                   
                                   if(conexao.next()) {
-                                      //vcod_recursos = conexao.getString("cod_recursos");
-                                      vhostname = conexao.getString("hostname");
+                                      
+                                      vcod_recursos = vcod;
                                       vsoperacional = conexao.getString("soperacional");
+                                      vversaop = conexao.getString("versaop");
                                       vmemoria = conexao.getString("memoria");
                                       vprocessador = conexao.getString("processador");
                                       vvolumetria = conexao.getString("volumetria");
                                       vbanco = conexao.getString("banco");
                                   }
                                   conexao.close();
+                                  
+                                  ConexaoSQLite conexao_serv = new ConexaoSQLite();
+                                    conexao_serv.query("SELECT hostname,cod "
+                                        + "FROM Servidores "
+                                        + " WHERE cod='" + vcod_recursos + "'");
+                                    if (conexao_serv.next()){
+                                        vhost_name_servidor = conexao_serv.getString("hostname");
+                                    }
+                                    conexao_serv.close();
                               }
                             %>
                             <form action="<%= sAction %>" method="GET">
                                 
                                 <div class="form-group">
                                     <label>Hostname</label>
-                                    <input type="text" value="<%= vcod_recursos %>" class="form-control" name="cxaCod_recursos" placeholder="Digite o cod do servidor">
+                                    <input type="text" value="<%= vhost_name_servidor %>" class="form-control" name="cxaCod_recursos" placeholder="Digite o cod do servidor" disabled>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label>S.O</label>
                                     <input type="text" value="<%= vsoperacional %>" class="form-control" name="cxaSoperacional" placeholder="Digite o Sistema Operacional">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Versão</label>
+                                    <input type="text" value="<%= vversaop %>" class="form-control" name="cxaVersao" placeholder="Digite a versão do Sistema Operacional">
                                 </div>
                                 
                                 <div class="form-group">
