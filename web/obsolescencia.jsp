@@ -57,19 +57,19 @@
                         <script type="text/javascript">
                                 var data = [
                                 {
-                                    value: 30,
+                                    value: 39,
                                     color: "#F78181",
                                     highlight: "#FF0000",
                                     label: "Windows XP"
                                 },
                                 {
-                                    value: 25,
+                                    value: 9,
                                     color: "#819FF7",
                                     highlight: "#4d4dff",
                                     label: "Windows 7"
                                 },
                                 {
-                                    value: 29,
+                                    value: 10,
                                     color: "#FFD700",
                                     highlight: "#FFFF00",
                                     label: "Windows 2000"
@@ -81,13 +81,13 @@
                                     label: "Windows 2003"
                                 },
                                 {
-                                    value: 100,
+                                    value: 104,
                                     color: "#00FF7F",
                                     highlight: "#00FF00",
                                     label: "Windows 2008"
                                 },
                                 {
-                                    value: 17,
+                                    value: 23,
                                     color: "#F7BE81",
                                     highlight: "#FF8000",
                                     label: "Unix"

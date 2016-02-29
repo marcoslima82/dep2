@@ -55,13 +55,13 @@
                         <script type="text/javascript">
                             var data = [
                                 {
-                                    value: 9,
+                                    value: 8,
                                     color: "#F78181",
                                     highlight: "#FF0000",
                                     label: "Sem monitoração"
                                 },
                                 {
-                                    value: 244,
+                                    value: 246,
                                     color: "#00FF7F",
                                     highlight: "#00FF00",
                                     label: "Monitorando"
@@ -73,7 +73,7 @@
                                     label: "Fora do Ametista"
                                 },
                                 {
-                                    value: 11,
+                                    value: 23,
                                     color: "#990099",
                                     highlight: "#e600e5",
                                     label: "N/A"
@@ -85,7 +85,7 @@
                                     label: "Solicitado regularização"
                                 },
                                 {
-                                    value: 13,
+                                    value: 14,
                                     color: "#F7BE81",
                                     highlight: "#FF8000",
                                     label: "Desativado"

@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-10">
                     <hr>
-                    <h1><small>Passagem de Turno Incidentes Departamentais</small></h1>
+                    <h1><small>Acompanhamento de Incidentes Departamentais</small></h1>
                     <div class="panel panel-primary">
                         
                         <div class="panel-heading">Passagem de turno</div>

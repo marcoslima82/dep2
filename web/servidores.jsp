@@ -54,7 +54,9 @@
                                     <%
 
                                         ConexaoSQLite conexao = new ConexaoSQLite();
-                                        conexao.query("SELECT * FROM Servidores");
+                                        conexao.query("SELECT * "
+                                                + "FROM Servidores "
+                                                + "ORDER BY hostname ASC ");
 
                                         while (conexao.next()) {
                                             int vcod = conexao.getInt("cod");
