@@ -5,11 +5,12 @@
 --%>
 
 <%@page import="conexao.ConexaoSQLite"%>
-<%@page contentType="text/html" import="java.util.Date, java.text.*" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.Date, java.text.*"%>
 <html>
     <head>
         <title>INCIDENTES</title>
-        <meta charset="UTF-8">
+         <meta charset=UTF-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <script src="js/jquery-1.11.1.min.js"></script>

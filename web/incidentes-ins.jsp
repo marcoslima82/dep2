@@ -3,9 +3,10 @@
     Created on : Feb 24, 2016, 7:48:54 AM
     Author     : admsup
 --%>
+
 <%@page import="conexao.ConexaoSQLite"%>
 <%
-
+    request.setCharacterEncoding("UTF-8");
     String vincidente = request.getParameter("cxaIncidente");
     String vstatus = request.getParameter("cxaStatus");
     String vanalista = request.getParameter("cxaAnalista");

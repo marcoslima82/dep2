@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-8">
                     <hr>
-                    <h1><small>Backup<h6>*últimos dados coletados 11/02/2016 ativos 301*</h6></small></h1>
+                    <h1><small>Backup<h6>*últimos dados coletados 29/02/2016*</h6></small></h1>
                     <hr>
                     
                     <%
@@ -57,13 +57,13 @@
                         <script type="text/javascript">
                             var data = [
                                 {
-                                    value: 61,
+                                    value: 26,
                                     color: "#F78181",
                                     highlight: "#FF0000",
                                     label: "?"
                                 },
                                 {
-                                    value: 218,
+                                    value: 244,
                                     color: "#00FF7F",
                                     highlight: "#00FF00",
                                     label: "OK"
@@ -75,16 +75,16 @@
                                     label: "Control-M"
                                 },
                                 {
-                                    value: 13,
+                                    value: 24,
                                     color: "#990099",
                                     highlight: "#e600e5",
                                     label: "N/A"
                                 },
                                 {
-                                    value: 0,
+                                    value: 3,
                                     color: "#FFD700",
                                     highlight: "#FFFF00",
-                                    label: "Solicitado regularização"
+                                    label: "Null"
                                 }
                             ]
 
@@ -105,7 +105,7 @@
 
                         </script>
                     </div>
-                    <div class="col-md-8"> ATIVOS 301</div>
+                    <div class="col-md-8"> ##### </div>
                 </div>
 
             </div>

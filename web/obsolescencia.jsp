@@ -28,11 +28,13 @@
                 <div class="col-md-2"> 
                     <%@ include file="menu.jsp" %>
                 </div>
+
                 <div class="col-md-8">
                     <hr>
                     <h1><small>Obsolescência<h6>*atualizando*</h6></small></h1>
+
                     <hr>Versões de Sistemas Operacionais<br>
-                    <%                        ConexaoSQLite conexao = new ConexaoSQLite();
+                    <%ConexaoSQLite conexao = new ConexaoSQLite();
                         conexao.query("SELECT soperacional, count(*) as contador "
                                 + "FROM Recursos "
                                 + "group by soperacional");
@@ -47,7 +49,7 @@
                             out.println("</tr>");
                         }
                         conexao.close();
-                        
+
                     %>
 
                     <div class="box-char">
@@ -55,7 +57,7 @@
                         <canvas id="GraficoDonut" width="auto"></canvas>
                         <div id="js-legend"></div>
                         <script type="text/javascript">
-                                var data = [
+                            var data = [
                                 {
                                     value: 39,
                                     color: "#F78181",
@@ -75,22 +77,28 @@
                                     label: "Windows 2000"
                                 },
                                 {
-                                    value: 50,
+                                    value: 49,
                                     color: "#990099",
                                     highlight: "#e600e5",
                                     label: "Windows 2003"
                                 },
                                 {
-                                    value: 104,
+                                    value: 102,
                                     color: "#00FF7F",
                                     highlight: "#00FF00",
                                     label: "Windows 2008"
                                 },
                                 {
                                     value: 23,
-                                    color: "#F7BE81",
-                                    highlight: "#FF8000",
+                                    color: "#ff944d",
+                                    highlight: "#ff6600",
                                     label: "Unix"
+                                },
+                                {
+                                    value: 18,
+                                    color: "#d2a679",
+                                    highlight: "#996633",
+                                    label: "N/A"
                                 }
                             ]
 
@@ -110,7 +118,9 @@
                             }
 
                         </script>
+
                     </div>
+
                     <div class="col-md-8"> ######### </div>
                 </div>
 

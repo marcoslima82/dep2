@@ -70,7 +70,7 @@
                             <form action="<%= sAction %>" method="GET">
                                 <div class="form-group">
                                     <label>Nome</label>
-                                    <input type="text" value="<%= vnome %>" class="form-control" name="cxaNome" placeholder="Digite nome do contato">
+                                    <input type="text" value="<%= vnome %>" class="form-control" rows="3" name="cxaNome" placeholder="Digite nome do contato">
                                 </div>
                                 <div class="form-group">
                                     <label>Telefone</label>
@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="text" value="<%= vemail %>" class="form-control" name="cxaEmail" placeholder="Digite email do contato">
+                                    <input class="form-control input-lg" type="text" value="<%= vemail %>" class="form-control" name="cxaEmail" placeholder="Digite email do contato">
                                 </div>
                                 <div class="form-group">
                                     <label>Nome do Servidor</label>

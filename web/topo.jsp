@@ -16,7 +16,7 @@
     </div>
     <div class="col-md-10 col-md-offset-1" >
         <h1>Controle de Sistemas Departamentais
-            <a href="logout.jsp" class="btn btn-warning btn-sm pull-right">Sair</a> 
+            <a href="logout.jsp" class="btn btn-danger btn-sm pull-right">Sair</a> 
             <span class="badge pull-right" style="margin-right: 15px;">
                 <%= vnomeUser %>
             </span> 

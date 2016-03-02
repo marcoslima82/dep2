@@ -7,6 +7,7 @@
 
 <%@page import="conexao.ConexaoSQLite"%>
 <%
+    request.setCharacterEncoding("UTF-8");
     String vcod = request.getParameter("cxaCod");
     String vincidente = request.getParameter("cxaIncidente");
     String vstatus = request.getParameter("cxaStatus");

@@ -10,11 +10,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset=UTF-8">
         <title>Incidentes</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <scrstatust src="js/jquery-1.11.1.min.js"></scrstatust>
-        <scrstatust src="js/bootstrap.min.js"></scrstatust>
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
 
@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Status</label>
-                                    <input type="text" value="<%= vstatus %>" class="form-control" name="cxaStatus" placeholder="Descrever andamento">
+                                    <input class="form-control input-lg" type="text" value="<%= vstatus %>" class="form-control" name="cxaStatus" placeholder="Descrever andamento">
                                 </div>
                                 <div class="form-group">
                                     <label>Analista</label>

@@ -85,10 +85,10 @@
                                     label: "Solicitado regularização"
                                 },
                                 {
-                                    value: 14,
+                                    value: 4,
                                     color: "#F7BE81",
                                     highlight: "#FF8000",
-                                    label: "Desativado"
+                                    label: "Null"
                                 }
                             ]
 

@@ -26,7 +26,7 @@
                     <h1><small>Bem-vindo ao sistema, <%= vnomeUser%></small></h1>
 
                     <div class="thumbnail">
-                        <img src="http://lorempixel.com/400/400/city" class="img-circle">
+                        <img src="http://lorempixel.com/400/400/business" class="img-circle">
                     </div>                        
                 </div>
                 <div class="col-md-2"> </div>
