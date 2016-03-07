@@ -33,9 +33,9 @@
                     <h1><small>Acompanhamento de Incidentes Departamentais</small></h1>
                     <div class="panel panel-primary">
                         
-                        <div class="panel-heading">Passagem de turno</div>
+                        <div class="panel-heading">Passagem de turno - Por ordem de notificação </div>
                         <div class="panel-body">
-                            <table class="table table-striped table-bordered table-condensed table-hover text-lowercase">
+                            <table class="table table-striped table-bordered table-condensed table-hover text-uppercase">
                                 <thead>
                                     <tr class="info text-nowrap">
                                         <td>INCIDENTE</td>
@@ -47,7 +47,8 @@
                                     <%ConexaoSQLite conexao = new ConexaoSQLite();
                                         //conexao.query("SELECT * FROM Recursos");
                                         conexao.query("SELECT * "
-                                                + "from Incidentes ");
+                                                + "from Incidentes "
+                                                + "ORDER BY cod_inc ASC");
                                                 
                                         while (conexao.next()) {
                                             int vcod = conexao.getInt("cod_inc");

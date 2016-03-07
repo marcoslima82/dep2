@@ -105,7 +105,38 @@
 
                         </script>
                     </div>
-                    <div class="col-md-8"> ##### </div>
+                    <div class="col-md-8"> 
+                        <div class="panel-body">
+                            <table class="table table-striped table-bordered table-condensed table-hover text-lowercase">
+                                <thead>
+                                    <tr class="info text-nowrap">
+                                        <!-- codigo sistema, saida out comentada
+                                        <td>COD</td>
+                                        --> 
+                                        <td>Hostnames a corrigir</td>
+                                        </tr>
+                                </thead>
+                        <tbody>
+                    <%
+                        
+                        ConexaoSQLite conexao_lista = new ConexaoSQLite();
+                        conexao_lista.query("SELECT hostname "
+                                + "FROM Servidores "
+                                + "WHERE backup like '?' OR monitoracao is null");
+
+                        while (conexao_lista.next()) {
+                            String lhost = conexao_lista.getString("hostname");
+                            //String lcount = conexao.getString("contador");
+                            out.println("<tr>");
+                            out.println("<td>" + lhost + "</td>");
+                           //out.println("<td>" + vcount + "]" + "</td>");
+                            out.println("</tr>");
+                        }
+                        conexao_lista.close();
+                        %>
+                        </tbody>
+                        </div>
+                    </div>
                 </div>
 
             </div>

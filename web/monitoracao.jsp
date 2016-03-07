@@ -30,9 +30,9 @@
                 </div>
                 <div class="col-md-8">
                     <hr>
-                    <h1><small>Monitoração<h6>*últimos dados coletados 10/02/2016 total ativo 301*</h6></small></h1>
+                    <h1><small>Monitoração<h6>*últimos dados coletados 02/03/2016 total ativo 259*</h6></small></h1>
                     <hr>
-                    <%                        ConexaoSQLite conexao = new ConexaoSQLite();
+                    <%ConexaoSQLite conexao = new ConexaoSQLite();
                         conexao.query("SELECT monitoracao, count(*) as contador "
                                 + "FROM Servidores "
                                 + "group by monitoracao");
@@ -47,7 +47,7 @@
                             out.println("</tr>");
                         }
                         conexao.close();
-                    %>
+                        %>
                     <div class="box-char">
 
                         <canvas id="GraficoDonut" width="auto"></canvas>
@@ -55,7 +55,7 @@
                         <script type="text/javascript">
                             var data = [
                                 {
-                                    value: 8,
+                                    value: 4,
                                     color: "#F78181",
                                     highlight: "#FF0000",
                                     label: "Sem monitoração"
@@ -73,13 +73,13 @@
                                     label: "Fora do Ametista"
                                 },
                                 {
-                                    value: 23,
+                                    value: 22,
                                     color: "#990099",
                                     highlight: "#e600e5",
                                     label: "N/A"
                                 },
                                 {
-                                    value: 0,
+                                    value: 4,
                                     color: "#FFD700",
                                     highlight: "#FFFF00",
                                     label: "Solicitado regularização"
@@ -109,7 +109,38 @@
 
                         </script>
                     </div>
-                    <div class="col-md-8"> TOTAL ATIVO 301 - *Nem todas são monitoradas pelo ametista</div>
+                    <div class="col-md-8">
+                        <div class="panel-body">
+                            <table class="table table-striped table-bordered table-condensed table-hover text-lowercase">
+                                <thead>
+                                    <tr class="info text-nowrap">
+                                        <!-- codigo sistema, saida out comentada
+                                        <td>COD</td>
+                                        --> 
+                                        <td>Hostnames a corrigir</td>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                        <%
+                        
+                        ConexaoSQLite conexao_lista = new ConexaoSQLite();
+                        conexao_lista.query("SELECT hostname "
+                                + "FROM Servidores "
+                                + "WHERE monitoracao like 'sem monitoração' OR monitoracao is null");
+
+                        while (conexao_lista.next()) {
+                            String lhost = conexao_lista.getString("hostname");
+                            //String lcount = conexao.getString("contador");
+                            out.println("<tr>");
+                            out.println("<td>" + lhost + "</td>");
+                           //out.println("<td>" + vcount + "]" + "</td>");
+                            out.println("</tr>");
+                        }
+                        conexao_lista.close();
+                        %>
+                                </tbody>
+                        </div>  
+                    </div>
                 </div>
 
             </div>
