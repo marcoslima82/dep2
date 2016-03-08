@@ -37,7 +37,7 @@
                             <table class="table table-striped table-bordered table-condensed table-hover text-lowercase">
                                 <thead>
                                     <tr>
-                                        <td>COD</td>
+                                        
                                         <td>HOSTNAME</td>
                                         <td>S.O</td>
                                         <td>VERSÃO</td>
@@ -65,7 +65,7 @@
                                             //String vcod_recursos = conexao.getString("cod_recursos");
 
                                             out.println("<tr>");
-                                            out.println("<td>" + vcod + "</td>");
+                                            //out.println("<td>" + vcod + "</td>");
                                             out.println("<td>" + vhostname + "</td>");
                                             out.println("<td>" + vsoperacional + "</td>");
                                             out.println("<td>" + vversaop + "</td>");

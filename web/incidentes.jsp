@@ -44,7 +44,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <%ConexaoSQLite conexao = new ConexaoSQLite();
+                                    <%
+                                    
+                                    
+                                    ConexaoSQLite conexao = new ConexaoSQLite();
                                         //conexao.query("SELECT * FROM Recursos");
                                         conexao.query("SELECT * "
                                                 + "from Incidentes "

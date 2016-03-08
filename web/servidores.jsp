@@ -43,7 +43,7 @@
                             <table class="table table-striped table-bordered table-condensed table-hover text-uppercase">
                                 <thead>
                                     <tr class="info text-nowrap">
-                                        <td>COD</td>
+                                        
                                         <td>HOSTNAME</td>
                                         <td>IP</td>
                                         <td>MONITORAÇÃO</td>
@@ -66,7 +66,7 @@
                                             String vbackup = conexao.getString("backup");
 
                                             out.println("<tr>");
-                                            out.println("<td>" + vcod + "</td>");
+                                            //out.println("<td>" + vcod + "</td>");
                                             out.println("<td>" + vhostname + "</td>");
                                             out.println("<td>" + vip + "</td>");
                                             out.println("<td>" + vmonitoracao + "</td>");
