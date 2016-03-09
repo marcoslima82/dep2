@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-md-8">
                     <hr>
-                    <h1><small>Monitoração<h6>*últimos dados coletados 02/03/2016 total ativo 259*</h6></small></h1>
+                    <h1><small>Monitoração<h6>*últimos dados coletados 08/03/2016*</h6></small></h1>
                     <hr>
                     <%ConexaoSQLite conexao = new ConexaoSQLite();
                         conexao.query("SELECT monitoracao, count(*) as contador "
@@ -55,37 +55,37 @@
                         <script type="text/javascript">
                             var data = [
                                 {
-                                    value: 4,
+                                    value: 3,
                                     color: "#F78181",
                                     highlight: "#FF0000",
                                     label: "Sem monitoração"
                                 },
                                 {
-                                    value: 246,
+                                    value: 250,
                                     color: "#00FF7F",
                                     highlight: "#00FF00",
                                     label: "Monitorando"
                                 },
                                 {
-                                    value: 28,
+                                    value: 25,
                                     color: "#819FF7",
                                     highlight: "#4d4dff",
                                     label: "Fora do Ametista"
                                 },
                                 {
-                                    value: 22,
+                                    value: 28,
                                     color: "#990099",
                                     highlight: "#e600e5",
                                     label: "N/A"
                                 },
                                 {
-                                    value: 4,
+                                    value: 3,
                                     color: "#FFD700",
                                     highlight: "#FFFF00",
-                                    label: "Solicitado regularização"
+                                    label: "Solicitado"
                                 },
                                 {
-                                    value: 4,
+                                    value: 0,
                                     color: "#F7BE81",
                                     highlight: "#FF8000",
                                     label: "Null"

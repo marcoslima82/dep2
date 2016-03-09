@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-8">
                     <hr>
-                    <h1><small>Backup<h6>*últimos dados coletados 29/02/2016*</h6></small></h1>
+                    <h1><small>Backup<h6>*últimos dados coletados 08/03/2016*</h6></small></h1>
                     <hr>
                     
                     <%
@@ -57,13 +57,13 @@
                         <script type="text/javascript">
                             var data = [
                                 {
-                                    value: 26,
+                                    value: 0,
                                     color: "#F78181",
                                     highlight: "#FF0000",
                                     label: "?"
                                 },
                                 {
-                                    value: 244,
+                                    value: 249,
                                     color: "#00FF7F",
                                     highlight: "#00FF00",
                                     label: "OK"
@@ -75,17 +75,24 @@
                                     label: "Control-M"
                                 },
                                 {
-                                    value: 24,
+                                    value: 29,
                                     color: "#990099",
                                     highlight: "#e600e5",
                                     label: "N/A"
                                 },
                                 {
-                                    value: 3,
+                                    value: 0,
                                     color: "#FFD700",
                                     highlight: "#FFFF00",
                                     label: "Null"
+                                },
+                                {
+                                    value: 19,
+                                    color: "#ffa366",
+                                    highlight: "#ff6600",
+                                    label: "Solicitado"
                                 }
+                                
                             ]
 
                             var options = {
@@ -122,7 +129,7 @@
                         ConexaoSQLite conexao_lista = new ConexaoSQLite();
                         conexao_lista.query("SELECT hostname "
                                 + "FROM Servidores "
-                                + "WHERE backup like '?' OR monitoracao is null");
+                                + "WHERE backup like '?' OR backup is null");
 
                         while (conexao_lista.next()) {
                             String lhost = conexao_lista.getString("hostname");

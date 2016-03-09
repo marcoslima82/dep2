@@ -59,43 +59,43 @@
                         <script type="text/javascript">
                             var data = [
                                 {
-                                    value: 39,
+                                    value: 41,
                                     color: "#F78181",
                                     highlight: "#FF0000",
                                     label: "Windows XP"
                                 },
                                 {
-                                    value: 9,
+                                    value: 10,
                                     color: "#819FF7",
                                     highlight: "#4d4dff",
                                     label: "Windows 7"
                                 },
                                 {
-                                    value: 10,
+                                    value: 15,
                                     color: "#FFD700",
                                     highlight: "#FFFF00",
                                     label: "Windows 2000"
                                 },
                                 {
-                                    value: 49,
+                                    value: 59,
                                     color: "#990099",
                                     highlight: "#e600e5",
                                     label: "Windows 2003"
                                 },
                                 {
-                                    value: 102,
+                                    value: 126,
                                     color: "#00FF7F",
                                     highlight: "#00FF00",
                                     label: "Windows 2008"
                                 },
                                 {
-                                    value: 23,
+                                    value: 19,
                                     color: "#ff944d",
                                     highlight: "#ff6600",
                                     label: "Unix"
                                 },
                                 {
-                                    value: 18,
+                                    value: 20,
                                     color: "#d2a679",
                                     highlight: "#996633",
                                     label: "N/A"
@@ -121,7 +121,39 @@
 
                     </div>
 
-                    <div class="col-md-8"> ######### </div>
+                    <div class="col-md-8">
+                    <div class="panel-body">
+                            <table class="table table-striped table-bordered table-condensed table-hover text-lowercase">
+                                <thead>
+                                    <tr class="info text-nowrap">
+                                        <!-- codigo sistema, saida out comentada
+                                        <td>COD</td>
+                                        --> 
+                                        <td>Hostnames sem S.O identificado</td>
+                                        </tr>
+                                </thead>
+                        <tbody>
+                    <%
+                        
+                        ConexaoSQLite conexao_lista = new ConexaoSQLite();
+                        conexao_lista.query("SELECT soperacional, Servidores.hostname "
+                                + "FROM Recursos "
+                                + "JOIN Servidores ON Servidores.cod = Recursos.cod_recursos "
+                                + "WHERE soperacional is null");
+
+                        while (conexao_lista.next()) {
+                            String lhost = conexao_lista.getString("hostname");
+                            //String lcount = conexao.getString("contador");
+                            out.println("<tr>");
+                            out.println("<td>" + lhost + "</td>");
+                           //out.println("<td>" + vcount + "]" + "</td>");
+                            out.println("</tr>");
+                        }
+                        conexao_lista.close();
+                        %>
+                        </tbody>
+                        </div>
+                    </div>
                 </div>
 
             </div>
