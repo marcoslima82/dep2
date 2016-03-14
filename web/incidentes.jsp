@@ -35,9 +35,9 @@
                         
                         <div class="panel-heading">Passagem de turno - Por ordem de notificação </div>
                         <div class="panel-body">
-                            <table class="table table-striped table-bordered table-condensed table-hover text-uppercase">
+                            <table class="table table-striped table-bordered table-condensed table-hover text-lowercase">
                                 <thead>
-                                    <tr class="info text-nowrap">
+                                    <tr class="info text-nowrap text-uppercase">
                                         <td>INCIDENTE</td>
                                         <td>STATUS </td>
                                         <td>ANALISTA</td>

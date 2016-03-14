@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-md-8">
                     <hr>
-                    <h1><small>Monitoração<h6>*últimos dados coletados 08/03/2016*</h6></small></h1>
+                    <h1><small>Monitoração<h6>*últimos dados coletados 10/03/2016*</h6></small></h1>
                     <hr>
                     <%ConexaoSQLite conexao = new ConexaoSQLite();
                         conexao.query("SELECT monitoracao, count(*) as contador "
@@ -55,7 +55,7 @@
                         <script type="text/javascript">
                             var data = [
                                 {
-                                    value: 3,
+                                    value: 0,
                                     color: "#F78181",
                                     highlight: "#FF0000",
                                     label: "Sem monitoração"
@@ -79,7 +79,7 @@
                                     label: "N/A"
                                 },
                                 {
-                                    value: 3,
+                                    value: 6,
                                     color: "#FFD700",
                                     highlight: "#FFFF00",
                                     label: "Solicitado"
@@ -117,7 +117,7 @@
                                         <!-- codigo sistema, saida out comentada
                                         <td>COD</td>
                                         --> 
-                                        <td>Hostnames a corrigir</td>
+                                        <td>Hostnames solicitado correção</td>
                                         </tr>
                                 </thead>
                                 <tbody>
@@ -126,7 +126,7 @@
                         ConexaoSQLite conexao_lista = new ConexaoSQLite();
                         conexao_lista.query("SELECT hostname "
                                 + "FROM Servidores "
-                                + "WHERE monitoracao like 'sem monitoração' OR monitoracao is null");
+                                + "WHERE monitoracao like 'solicitado'");
 
                         while (conexao_lista.next()) {
                             String lhost = conexao_lista.getString("hostname");

@@ -31,7 +31,7 @@
 
                 <div class="col-md-8">
                     <hr>
-                    <h1><small>Obsolescência<h6>*atualizando*</h6></small></h1>
+                    <h1><small>Obsolescência<h6>*atualizando 10/03/2016*</h6></small></h1>
 
                     <hr>Versões de Sistemas Operacionais<br>
                     <%ConexaoSQLite conexao = new ConexaoSQLite();
@@ -71,25 +71,25 @@
                                     label: "Windows 7"
                                 },
                                 {
-                                    value: 15,
+                                    value: 16,
                                     color: "#FFD700",
                                     highlight: "#FFFF00",
                                     label: "Windows 2000"
                                 },
                                 {
-                                    value: 59,
+                                    value: 61,
                                     color: "#990099",
                                     highlight: "#e600e5",
                                     label: "Windows 2003"
                                 },
                                 {
-                                    value: 126,
+                                    value: 135,
                                     color: "#00FF7F",
                                     highlight: "#00FF00",
                                     label: "Windows 2008"
                                 },
                                 {
-                                    value: 19,
+                                    value: 20,
                                     color: "#ff944d",
                                     highlight: "#ff6600",
                                     label: "Unix"

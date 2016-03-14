@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-8">
                     <hr>
-                    <h1><small>Backup<h6>*últimos dados coletados 08/03/2016*</h6></small></h1>
+                    <h1><small>Backup<h6>*últimos dados coletados 10/03/2016*</h6></small></h1>
                     <hr>
                     
                     <%
@@ -63,7 +63,7 @@
                                     label: "?"
                                 },
                                 {
-                                    value: 249,
+                                    value: 257,
                                     color: "#00FF7F",
                                     highlight: "#00FF00",
                                     label: "OK"
@@ -81,15 +81,9 @@
                                     label: "N/A"
                                 },
                                 {
-                                    value: 0,
+                                    value: 11,
                                     color: "#FFD700",
                                     highlight: "#FFFF00",
-                                    label: "Null"
-                                },
-                                {
-                                    value: 19,
-                                    color: "#ffa366",
-                                    highlight: "#ff6600",
                                     label: "Solicitado"
                                 }
                                 
@@ -120,7 +114,7 @@
                                         <!-- codigo sistema, saida out comentada
                                         <td>COD</td>
                                         --> 
-                                        <td>Hostnames a corrigir</td>
+                                        <td>Solicitado status</td>
                                         </tr>
                                 </thead>
                         <tbody>
@@ -129,7 +123,7 @@
                         ConexaoSQLite conexao_lista = new ConexaoSQLite();
                         conexao_lista.query("SELECT hostname "
                                 + "FROM Servidores "
-                                + "WHERE backup like '?' OR backup is null");
+                                + "WHERE backup like 'solicitado'");
 
                         while (conexao_lista.next()) {
                             String lhost = conexao_lista.getString("hostname");
