@@ -36,8 +36,7 @@
                         <div class="panel-body">
                             <table class="table table-striped table-bordered table-condensed table-hover text-lowercase">
                                 <thead>
-                                    <tr>
-                                        
+                                    <tr class="info text-nowrap text-uppercase">
                                         <td>HOSTNAME</td>
                                         <td>S.O</td>
                                         <td>VERSÃO</td>
