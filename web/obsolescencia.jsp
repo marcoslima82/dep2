@@ -89,7 +89,7 @@
                                     label: "Windows 2008"
                                 },
                                 {
-                                    value: 20,
+                                    value: 21,
                                     color: "#ff944d",
                                     highlight: "#ff6600",
                                     label: "Unix"
