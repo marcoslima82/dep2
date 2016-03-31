@@ -63,7 +63,7 @@
                                     label: "?"
                                 },
                                 {
-                                    value: 257,
+                                    value: 264,
                                     color: "#00FF7F",
                                     highlight: "#00FF00",
                                     label: "OK"
@@ -75,16 +75,16 @@
                                     label: "Control-M"
                                 },
                                 {
-                                    value: 29,
+                                    value: 31,
                                     color: "#990099",
                                     highlight: "#e600e5",
                                     label: "N/A"
                                 },
                                 {
-                                    value: 11,
+                                    value: 2,
                                     color: "#FFD700",
                                     highlight: "#FFFF00",
-                                    label: "Solicitado"
+                                    label: "Com falha"
                                 }
                                 
                             ]

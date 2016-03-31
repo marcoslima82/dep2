@@ -61,7 +61,7 @@
                                     label: "Sem monitoração"
                                 },
                                 {
-                                    value: 250,
+                                    value: 252,
                                     color: "#00FF7F",
                                     highlight: "#00FF00",
                                     label: "Monitorando"
@@ -79,7 +79,7 @@
                                     label: "N/A"
                                 },
                                 {
-                                    value: 6,
+                                    value: 4,
                                     color: "#FFD700",
                                     highlight: "#FFFF00",
                                     label: "Solicitado"
