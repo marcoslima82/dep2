@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-8">
                     <hr>
-                    <h1><small>Backup<h6>*últimos dados coletados 10/03/2016*</h6></small></h1>
+                    <h1><small>Backup<h6>*últimos dados coletados 31/03/2016*</h6></small></h1>
                     <hr>
                     
                     <%
@@ -57,31 +57,37 @@
                         <script type="text/javascript">
                             var data = [
                                 {
-                                    value: 0,
+                                    value: 1,
                                     color: "#F78181",
                                     highlight: "#FF0000",
-                                    label: "?"
+                                    label: "ok(verificar)"
                                 },
                                 {
-                                    value: 264,
+                                    value: 159,
                                     color: "#00FF7F",
                                     highlight: "#00FF00",
-                                    label: "OK"
+                                    label: "BD/FS"
                                 },
                                 {
-                                    value: 12,
+                                    value: 115,
                                     color: "#819FF7",
                                     highlight: "#4d4dff",
+                                    label: "FS"
+                                },
+                                {
+                                    value: 1,
+                                    color: "#ff99cc",
+                                    highlight: "#ff1a8c",
                                     label: "Control-M"
                                 },
                                 {
-                                    value: 31,
+                                    value: 34,
                                     color: "#990099",
                                     highlight: "#e600e5",
                                     label: "N/A"
                                 },
                                 {
-                                    value: 2,
+                                    value: 0,
                                     color: "#FFD700",
                                     highlight: "#FFFF00",
                                     label: "Com falha"
@@ -114,7 +120,7 @@
                                         <!-- codigo sistema, saida out comentada
                                         <td>COD</td>
                                         --> 
-                                        <td>Solicitado status</td>
+                                        <td>Verificar politica</td>
                                         </tr>
                                 </thead>
                         <tbody>
@@ -123,7 +129,7 @@
                         ConexaoSQLite conexao_lista = new ConexaoSQLite();
                         conexao_lista.query("SELECT hostname "
                                 + "FROM Servidores "
-                                + "WHERE backup like 'solicitado'");
+                                + "WHERE backup like 'ok'");
 
                         while (conexao_lista.next()) {
                             String lhost = conexao_lista.getString("hostname");

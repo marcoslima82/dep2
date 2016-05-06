@@ -18,5 +18,5 @@
         <hr>
         <a href="obsolescencia.jsp">Obsolescência</a>
         <hr>
-        <a href="contatos.jsp">Contatos</a>
+        <a href="homeoffice.jsp">Contatos</a>
     </div>

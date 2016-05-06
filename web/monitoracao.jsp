@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-md-8">
                     <hr>
-                    <h1><small>Monitoração<h6>*últimos dados coletados 10/03/2016*</h6></small></h1>
+                    <h1><small>Monitoração<h6>*últimos dados coletados 31/03/2016*</h6></small></h1>
                     <hr>
                     <%ConexaoSQLite conexao = new ConexaoSQLite();
                         conexao.query("SELECT monitoracao, count(*) as contador "
@@ -73,7 +73,7 @@
                                     label: "Fora do Ametista"
                                 },
                                 {
-                                    value: 28,
+                                    value: 29,
                                     color: "#990099",
                                     highlight: "#e600e5",
                                     label: "N/A"

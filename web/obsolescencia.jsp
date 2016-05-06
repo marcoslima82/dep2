@@ -83,7 +83,7 @@
                                     label: "Windows 2003"
                                 },
                                 {
-                                    value: 135,
+                                    value: 138,
                                     color: "#00FF7F",
                                     highlight: "#00FF00",
                                     label: "Windows 2008"
@@ -95,9 +95,9 @@
                                     label: "Unix"
                                 },
                                 {
-                                    value: 23,
-                                    color: "#d2a679",
-                                    highlight: "#996633",
+                                    value: 20,
+                                    color: " #7c7c50",
+                                    highlight: "#2f2f1e",
                                     label: "N/A"
                                 }
                             ]
