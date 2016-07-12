@@ -11,13 +11,14 @@
     //String vhost = request.getParameter("cxaHost");
     String vcod_servidor = request.getParameter("cxaServidor");
     String varea = request.getParameter("cxaArea");
+    String vblindagem = request.getParameter("cxaBlindagem");
     
     ConexaoSQLite conexao = new ConexaoSQLite();
     conexao.queryUpdate("INSERT INTO Sistemas "
-            + "(sistema,area,cod_sistema) values ("
+            + "(sistema,area,cod_sistema,blindagem) values ("
             + "'"+vsistema+"',"
             + "'"+varea+"',"
-            //+ "'"+vip+"',"
+            + "'"+vblindagem+"',"
             + "'"+vcod_servidor+"'"
             + ")");
     conexao.close();

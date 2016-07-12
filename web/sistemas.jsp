@@ -43,13 +43,14 @@
                                         <td>SERVIDOR</td>
                                         <td>IP</td>
                                         <td>AREA RECEPTORA</td>
+                                        <td>BLINDAGEM</td>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <%
 
                                         ConexaoSQLite conexao = new ConexaoSQLite();
-                                        conexao.query("SELECT cod_sis,sistema,Servidores.hostname,Servidores.ip,area "
+                                        conexao.query("SELECT cod_sis,sistema,Servidores.hostname,Servidores.ip,area,blindagem "
                                                 + "FROM Sistemas,Servidores "
                                                 //+ "ORDER BY sistema ASC ");
                                                 + "WHERE Sistemas.cod_sistema = Servidores.cod "
@@ -61,6 +62,7 @@
                                             String vhost = conexao.getString("hostname");
                                             String vip = conexao.getString("ip");
                                             String varea = conexao.getString("area");
+                                            String vblindagem = conexao.getString("blindagem");
 
                                             out.println("<tr>");
                                             //out.println("<td>" + vcod + "</td>");
@@ -68,6 +70,7 @@
                                             out.println("<td>" + vhost + "</td>");
                                             out.println("<td>" + vip + "</td>");
                                             out.println("<td>" + varea + "</td>");
+                                            out.println("<td>" + vblindagem + "</td>");
                                             //Coluna com Botão ALTERAR
                                             out.println("<td>");
                                             out.println("<a href=\"sistemas-form.jsp?cod_sis=" + vcod + "\" class=\"btn btn-primary btn-xs\">");

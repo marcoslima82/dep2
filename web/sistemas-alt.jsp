@@ -10,6 +10,7 @@
     String vsistema = request.getParameter("cxaSistema");
     String vservidor = request.getParameter("cxaHostname");
     String varea = request.getParameter("cxaArea");
+    String vblindagem = request.getParameter("cxaBlindagem");
         
     ConexaoSQLite conexao = new ConexaoSQLite();
     conexao.queryUpdate("UPDATE Sistemas "
@@ -17,6 +18,7 @@
             + "sistema='"+vsistema+"',"
            // + "hostname'"+vservidor+"',"
             + "area='"+varea+"'"
+            + "blindagem='"+vblindagem+"'"
             + " WHERE cod_sis='"+vcod+"'");
     conexao.close();
     response.sendRedirect("sistemas.jsp");

@@ -38,9 +38,7 @@
                                 Cadastro de Sistemas</small>
                         </div>
                         <div class="panel-body">
-                            <!-- MIOLO do PAINEL -->
-                            <!-- TESTE -->
-                            <!-- TESTE -->
+                            
                            <%  
                                 
                                 String vcod = request.getParameter("cod_sis");
@@ -52,13 +50,15 @@
                                 String vhost_name_servidor = "N/A";
                                 String name_servidor;
                                 String comp = "";
+                                String vblindagem = "";
+                                
                                 ArrayList servidores = new ArrayList();
                                 int num = 0;
                                
                                 if (vcod != null){
                                     sAction = "sistemas-alt.jsp";
                                     ConexaoSQLite conexao_sis = new ConexaoSQLite();
-                                    conexao_sis.query("SELECT cod_sis,sistema, cod_sistema, area "
+                                    conexao_sis.query("SELECT cod_sis,sistema, cod_sistema, area, blindagem "
                                             + "FROM Sistemas "
                                             + " WHERE cod_sis='" + vcod + "'");
                                     if (conexao_sis.next()){  
@@ -67,6 +67,7 @@
                                         //vcod = conexao.getString("cod_sis");
                                         vhost = conexao_sis.getString("cod_sistema");
                                         varea = conexao_sis.getString("area");
+                                        vblindagem = conexao_sis.getString("blindagem");
                                         comp = vhost;
                                         
                                     }
@@ -122,6 +123,10 @@
                                     <label>Area Receptora</label>
                                     <input type="text" value="<%= varea%>" class="form-control" name="cxaArea" placeholder="Digite Area Receptora">
                                 </div>
+                                <div class="form-group">
+                                    <label>Blindagem</label>
+                                    <input class="form-control" name="cxaBlindagem" value="<%= vblindagem %>" disabled="">
+                                   </div>
                                 <input type="hidden" name="cxaCod" value="<%= vcod%>" class="form-control">
                                 <button type="submit" class="btn btn-primary">Cadastrar</button>
                             </form>                            
