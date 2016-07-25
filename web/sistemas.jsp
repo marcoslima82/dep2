@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <script src="js/jquery-1.11.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/Chart.js"></script>
     </head>
     <body>
 
@@ -30,6 +31,7 @@
                 <div class="col-md-10">
                     <hr>
                     <h1><small>Lista de Sistemas</small></h1>
+                    
                     <div class="panel panel-primary">
                         <div class="panel-heading">Lista de sistemas</div>
                         <div class="panel-body">
@@ -94,6 +96,40 @@
                             </table>
                             <hr>
                             <a href="sistemas-form.jsp" class="btn btn-primary">Novo Sistema</a>
+                            <hr>
+                            Verificado até 1ª semana de julho/2016
+                            <hr>
+
+                            <div class="box-char">
+
+                                <canvas id="barsChart" width="860" height="500"></canvas>
+                                <div id="js-legend"></div>
+                                <script type="text/javascript">
+
+                                            var data = {
+                                            labels: ["NULL","Adilson Paes (Redes)","Ag. Arquitetura","Alexander Gomes De Freitas","Apoio","BI","CRM Sustentação","Em Desativação","Erico Panaro","Faturamento","Fora de Escopo","MobilePeople","Sem informação","Sem tomada de controle","THCS","Tramitação"],
+                                                    datasets: [
+                                                    {
+                                                    label: "Área",
+                                                            fillColor: "rgba(30, 131, 124, 0.4)",
+                                                            highlightFill : "rgba(30, 131, 124, 0.8)",
+                                                            strokeColor: "rgba(30, 131, 0, 0.8)",
+                                                            pointColor: "rgba(255, 112, 0, 0.5)",
+                                                            pointStrokeColor: "#E5E5E5",
+                                                            data: [32,9,5,1,49,42,73,1,2,16,15,1,2,82,4,35],
+                                                    }
+                                                    
+                                                    ]
+                                                
+
+                                                    };
+                                                            window.onload = function () {
+                                                            var ctx = document.getElementById('barsChart').getContext('2d');
+                                                                    var barsChart = new Chart(ctx).Bar(data);
+                                                                    document.getElementById('js-legend').innerHTML = barsChart.generateLegend();
+                                                            }
+                                </script>
+                            </div>
                         </div>
                     </div>                    
                 </div>

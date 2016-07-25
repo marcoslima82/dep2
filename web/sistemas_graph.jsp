@@ -7,7 +7,7 @@
 <%@page contentType="text/html" import="java.util.Date, java.text.*" pageEncoding="UTF-8"%>
 <html>
     <head>
-        <title>Controle de monitoração sistemas departamentais</title>
+        <title>TOMADA DE CONTROLE sistemas departamentais</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-8">
                     <hr>
-                    <h1><small>Backup<h6>*últimos dados coletados 31/03/2016*</h6></small></h1>
+                    <h1><small>Tomada de controle<h6>*últimos dados coletados 31/03/2016*</h6></small></h1>
                     <hr>
 
                     <%                        
@@ -49,49 +49,40 @@
                         }
                         conexao2.close();
                     %>
-                    <div class="box-char">
+                    <hr>
+                            Verificado até 1ª semana de julho/2016
+                            <hr>
 
-                        <canvas id="GraficoDonut" width="auto"></canvas>
-                        <div id="js-legend"></div>
-                        <script type="text/javascript">
-                            var data = {
-                                labels:[
-                                    "apoio","crm","tramitaçao"
-                                ],
-                                datasets: [
-                                    {
-                                        data: [300, 50, 100],
-            backgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56"
-            ],
-            hoverBackgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56"
-            ]
-                                    }
-                                ]
-                            }
+                            <div class="box-char">
 
-                            var options = {
-                                responsive: true,
-                                segmentShowStroke: false,
-                                animateRotate: true,
-                                animateScale: false,
-                                percentageInnerCutout: 50
+                                <canvas id="barsChart" width="700" height="400"></canvas>
+                                <div id="js-legend"></div>
+                                <script type="text/javascript">
 
-                            }
+                                            var data = {
+                                            labels: ["NULL","Adilson Paes (Redes)","Ag. Arquitetura","Alexander Gomes De Freitas","Apoio","BI","CRM Sustentação","Em Desativação","Erico Panaro","Faturamento","Fora de Escopo","MobilePeople","Sem informação","Sem tomada de controle","THCS","Tramitação"],
+                                                    datasets: [
+                                                    {
+                                                    label: "Área",
+                                                            fillColor: "rgba(30, 131, 124, 0.4)",
+                                                            highlightFill : "rgba(30, 131, 124, 0.8)",
+                                                            strokeColor: "rgba(30, 131, 0, 0.8)",
+                                                            pointColor: "rgba(255, 112, 0, 0.5)",
+                                                            pointStrokeColor: "#E5E5E5",
+                                                            data: [32,9,5,1,49,42,73,1,2,16,15,1,2,82,4,35],
+                                                    }
+                                                    
+                                                    ]
+                                                
 
-                            window.onload = function () {
-                                var ctx = document.getElementById("GraficoDonut").getContext("2d");
-                                var GraficoDonut = new Chart(ctx).Doughnut(data, options);
-                                document.getElementById('js-legend').innerHTML = GraficoDonut.generateLegend();
-                            }
-
-                        </script>
-                    </div>
+                                                    };
+                                                            window.onload = function () {
+                                                            var ctx = document.getElementById('barsChart').getContext('2d');
+                                                                    var barsChart = new Chart(ctx).Bar(data);
+                                                                    document.getElementById('js-legend').innerHTML = barsChart.generateLegend();
+                                                            }
+                                </script>
+                            </div>
                     <div class="col-md-8"> 
                         <div class="panel-body">
                             <table class="table table-striped table-bordered table-condensed table-hover text-lowercase">
@@ -106,12 +97,12 @@
                                 <tbody>
                                     <%
                                         ConexaoSQLite conexao_lista = new ConexaoSQLite();
-                                        conexao_lista.query("SELECT hostname "
-                                                + "FROM Servidores "
-                                                + "WHERE backup like 'ok'");
+                                        conexao_lista.query("SELECT sistema "
+                                                + "FROM Sistemas "
+                                                + "WHERE area is null");
 
                                         while (conexao_lista.next()) {
-                                            String lhost = conexao_lista.getString("hostname");
+                                            String lhost = conexao_lista.getString("sistema");
                                             //String lcount = conexao.getString("contador");
                                             out.println("<tr>");
                                             out.println("<td>" + lhost + "</td>");
